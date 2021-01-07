@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <!-- strings for Button-->
+
+  <string name="suchen">suchen</string>
+  <string name="tauschen">tauschen</string>
+  <string name="drucken">drucken</string>
+  <string name="buchen">buchen</string>
+  <string name="etikett_drucken">etikett drucken</string>
+  <string name="dokumentieren">dokumentieren</string>
+  <string name="kommisionieren">kommisionieren</string>
+  <string name="deaktivieren">deaktivieren</string>
+  <string name="aktivieren">aktivieren</string>
+  <string name="login">login</string>
+  
+  
+  <!-- strings for label-->
+
+  <string name="label_pruefteil">Prüfteil</string>
+  <string name="label_pruefteil_buchen">Prüfteil - Buchen</string>
+  <string name="label_pruefteil_dokumentieren">Prüfteil - Dokumentieren</string>
+  <string name="label_pruefteil_etikett_drucken">Prüfteil- Etikett drucken</string>
+  <string name="label_pruefteil_info">Prüfteil - Info</string>
+  <string name="label_aufbau">Aufbau</string>
+  <string name="label_aufbau_kommisionieren">Aufbau - Kommisionieren</string>
+  <string name="label_aufbau_deaktivieren">Aufbau - Deaktivieren</string>
+  <string name="label_aufbau_aktivieren">Aufbau - Aktivieren</string>
+  <string name="label_aufbau_info">Aufbau - Info</string>
+  <string name="label_aufbau_buchen">Aufbau - Buchen</string>
+  <string name="label_aufbau_dokumentieren">Aufbau - Dokumentieren</string>
+  <string name="label_lagerplatz">Lagerplatz</string>
+  <string name="label_lagerplatz_tauschen">Lagerplatz - Tauschen</string>
+  <string name="app_name">Scanner</string>
+  
+  
+  
+  <!-- strings bold -->
+
+  
+  <string name="pruefteil">
+    <b>Prüfteil</b>
+  </string>
+  <string name="aufbau">
+    <b>Aufbau</b>
+  </string>
+  <string name="lagerplatz">
+    <b>Lagerplatz</b>
+  </string>
+  <string name="lagerort">
+    <b>Lagerort</b>
+  </string>
+  <string name="auswahl">Auswahl</string>
+  <string name="lagerort_auswaehlen">
+    <b>Lagerort auswählen:</b>
+  </string>
+  <string name="info">info</string>
+  
+  <string name="pruefteil_id">
+    <b>Prüfteil-ID:</b>
+  </string>
+  <string name="lager1">
+    <b>Lager 1:</b>
+  </string>
+  <string name="lager2">
+    <b>Lager 2:</b>
+  </string>
+  <string name="bezeichnung"><b>Bezeichnung:</b></string>
+  <string name="status">
+    <b>Status:</b>
+  </string>
+  <string name="offene_messkoepfe">
+    <b>Offene Messköpfe:</b>
+  </string>
+  <string name="username">
+    <b>Username:</b>
+  </string>
+  <string name="password">
+    <b>Password:</b>
+  </string>
+  
+
+
+  <!--String array-->  
+  
+  <string-array name="Lagerorte">
+    <item> </item>
+    <item>Lagerort 1</item>
+    <item>Lagerort 2</item>
+    <item>Lagerort 3</item>
+    <item>Lagerort 4</item>
+    <item>Lagerort 5</item>
+    <item>Lagerort 6</item>
+    <item>Lagerort 7</item>
+    <item>Lagerort 8</item>
+  </string-array>
+
+
+  
+  
+</resources>

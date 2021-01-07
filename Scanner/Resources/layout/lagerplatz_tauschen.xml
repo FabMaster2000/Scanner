@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="800px"
+      android:gravity="center"
+      android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lager1"/>
+    <EditText
+        android:layout_width="300px"
+        android:layout_height="80px"/>
+    
+    <TextView
+        android:layout_marginTop="80px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lager2"/>
+    <EditText
+        android:layout_width="300px"
+        android:layout_height="80px"/>
+    <Button
+        android:layout_marginTop="100px"
+        android:text="@string/tauschen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_tauschen" />
+
+  </LinearLayout>
+  <include layout="@layout/layout_slider"/>
+</RelativeLayout>
