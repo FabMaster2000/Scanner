@@ -1,14 +1,4 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Scanner
 {
@@ -31,7 +21,7 @@ namespace Scanner
 
         public static bool CheckInformation(string username, string password)
         {
-
+            //foreach Key-Value-Pair, to get all users(Key) with their password(Value)
             foreach (var kvp in users)
             {
                 if (username == kvp.Key && password == kvp.Value)
@@ -45,8 +35,10 @@ namespace Scanner
 
         public static string GetUserPassword(string key)
         {
+            //foreach Key-Value-Pair, to get all users(Key) with their password(Value)
             foreach (var kvp in users)
             {
+                //If-Username is created
                 if(kvp.Key == key)
                 {
                     pw =  kvp.Value; 

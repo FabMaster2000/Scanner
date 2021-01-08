@@ -1,33 +1,14 @@
 ﻿using Android.Runtime;
 using Android.Widget;
-using System;
-using Android.Views;
 using Android.Content;
-using Android.Support.V7.Widget;
 using Android.Support.V7.App;
 using Android.App;
 using Android.OS;
+using Android.Views.InputMethods;
 
 namespace Scanner
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
-
-
-    /*
-    class User
-    {
-        private string username;
-        private string password;
-        private User user;
-        public User(string username, string password)
-        {
-            this.username = username;
-            this.password = password;
-        }
-    }
-    */
-
-
     public class users_hinzufuegen_activity : AppCompatActivity
     {
 
@@ -45,7 +26,7 @@ namespace Scanner
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set the view
+
             SetContentView(Resource.Layout.user_hinzufuegen);
 
 
@@ -64,45 +45,57 @@ namespace Scanner
 
             button_get_password.Click += delegate
             {
-                //Edit Text to String
+                //EditText to String
                 username = FindViewById<EditText>(Resource.Id.editText_username).Text;
                 if (username != "")
                 {
-                    if (users_information.GetUserPassword(username) != "")
+                    if (users_information.GetUserPassword(username) != null)
                     {
+                        //PopUp-Window
                         string toast = string.Format("The {0}'s password is: {1}", username, users_information.GetUserPassword(username));
                         Toast.MakeText(this, toast, ToastLength.Long).Show();
                     }
                     else
                     {
-                        string toast = string.Format("The username is not created");
+                        //PopUp-Window
+                        string toast = string.Format("The user is not created");
                         Toast.MakeText(this, toast, ToastLength.Long).Show();
                     }
                 }
                 else
                 {
+                    //PopUp-Window
                     string toast = string.Format("Please enter a Username");
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
+                    //Focus on Username-EditText
+                    editText_username.RequestFocus();
+                    
+                    //Show Keyboard
+                    InputMethodManager inputMethodManager = GetSystemService(Context.InputMethodService) as InputMethodManager;
+                    inputMethodManager.ShowSoftInput(editText_username, ShowFlags.Forced);
+                    inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
                 }
             };
 
-            //If EditText = username && Enter is pressed
-            
+            /*If EditText = username && Enter is pressed -> Funktioniert nicht
+            editText_username.KeyPress += (object sender, View.KeyEventArgs e) =>
             {
                 if (e.KeyCode == Keycode.Enter)
                 {
+                    //Set focus to Password-EditText
                     editText_password.RequestFocus();
                 }
-            };
+            };*/
 
-            //If EditText = password && Enter is pressed
+            /*If EditText = password && Enter is pressed -> Funktioniert nicht
             editText_password.KeyPress += (object sender, View.KeyEventArgs e) =>
             {
                 if (e.KeyCode == Keycode.Enter)
                 {
+                    //Hit the add_user Button
                     add_user_click();
                 }
-            };
+            };*/
 
 
             button_all_users.Click += delegate
@@ -119,41 +112,51 @@ namespace Scanner
 
         }
 
-        public void PrintUsers()
-        {
-            if (users_information.GetUsers().Count == 0)
-            {
-                string toast = string.Format("No users registered");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-            }
-            else
-            {
-                foreach (var kvp in users_information.GetUsers())
-                {
-                    string toast = string.Format("{0} / {1}", kvp.Key, kvp.Value);
-                    Toast.MakeText(this, toast, ToastLength.Long).Show();
-                }
-            }
-        }
+        
 
         public void add_user_click()
         {
             //Edit Text to String
             username = FindViewById<EditText>(Resource.Id.editText_username).Text;
             password = FindViewById<EditText>(Resource.Id.editText_password).Text;
+            
             if (password != "")
             {
+                //AddUser
                 users_information.AddUser(username, password);
+                //Show PopUp Window
                 string toast = string.Format("{0} added", username);
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
+                //Hit the Back-Button
                 base.OnBackPressed();
             }
             else
             {
+                //Show PopUp Window
                 string toast = string.Format("The password could not be empty");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
             }
 
+        }
+
+        public void PrintUsers()
+        {
+            if (users_information.GetUsers().Count == 0)
+            {
+                //Show PopUp Window
+                string toast = string.Format("No users registered");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+            }
+            else
+            {
+                //Foreach Key-Value-Par, to get all Users
+                foreach (var kvp in users_information.GetUsers())
+                {
+                    //Show PopUp Window
+                    string toast = string.Format("{0} / {1}", kvp.Key, kvp.Value);
+                    Toast.MakeText(this, toast, ToastLength.Long).Show();
+                }
+            }
         }
     }
 }

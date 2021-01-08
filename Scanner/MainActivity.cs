@@ -57,11 +57,13 @@ namespace Scanner
                     //Edit Text to String
                     username = FindViewById<EditText>(Resource.Id.editText_username).Text;
                     password = FindViewById<EditText>(Resource.Id.editText_password).Text;
+
                     StartActivity(typeof(MainHome_activity));
 
                 }
                 else
                 {
+                    //Show PopUp Window
                     string toast = string.Format("Wrong Login-Informations");
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
                 }
@@ -86,6 +88,7 @@ namespace Scanner
                     //Wrong password
                     else
                     {
+                        //Show PopUp Window
                         string toast = string.Format("Wrong Password");
                         Toast.MakeText(this, toast, ToastLength.Long).Show();
                     }
@@ -94,6 +97,7 @@ namespace Scanner
                 //No password
                 else
                 {
+                    //Show PopUp Window
                     string toast = string.Format("Password required");
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
 

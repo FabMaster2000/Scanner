@@ -22,8 +22,9 @@ namespace Scanner
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.pruefteil);
+
+            //Elemts get their ID
             button_buchen = FindViewById<Button>(Resource.Id.button_buchen);
             button_info = FindViewById<Button>(Resource.Id.button_info);
             button_etikett_drucken= FindViewById<Button>(Resource.Id.button_etikett_drucken);
@@ -32,6 +33,8 @@ namespace Scanner
             button_aufbau = FindViewById<Button>(Resource.Id.button_aufbau);
             button_lagerplatz = FindViewById<Button>(Resource.Id.button_lagerplatz);
 
+
+            //Click-Event
             button_buchen.Click += delegate
             {
                 buchen_click();
@@ -66,11 +69,7 @@ namespace Scanner
             };
         }
 
-        protected override void OnStop()
-        {
-            base.OnStop();
-            
-        }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -79,12 +78,7 @@ namespace Scanner
         }
 
 
-
-
-
-
-
-        //Methoden später auslagern
+        //Methods to outsource
         public void buchen_click()
         {
             StartActivity(typeof(pruefteil_buchen_activity));
