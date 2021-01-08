@@ -13,8 +13,11 @@
   <string name="deaktivieren">deaktivieren</string>
   <string name="aktivieren">aktivieren</string>
   <string name="login">login</string>
+  <string name="hinzufuegen">hinzufügen</string>
+  <string name="passwort_anzeigen">passwort anzeigen</string>
+  <string name="alle_benutzer">alle benutzer</string>
   
-  
+
   <!-- strings for label-->
 
   <string name="label_pruefteil">Prüfteil</string>
@@ -78,7 +81,16 @@
   <string name="password">
     <b>Password:</b>
   </string>
-  
+  <string name="benutzer_hinzufuegen">
+    <b>Benutzer hinzufügen</b>
+  </string>
+  <string name="benutzername">
+    <b>Benutzername:</b>
+  </string>
+  <string name="passwort">
+    <b>Passwort:</b>
+  </string>
+
 
 
   <!--String array-->  
