@@ -3,6 +3,9 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
+using System.Data.SqlClient;
+using System;
+using Org.Xmlpull.V1.Sax2;
 
 namespace Scanner
 {
@@ -17,15 +20,14 @@ namespace Scanner
         private string password;
 
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState) 
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-
-
-
             // Set the view
             SetContentView(Resource.Layout.login);
+
+
 
             //Element get their ID
             button_login = FindViewById<Button>(Resource.Id.button_login);
@@ -33,10 +35,61 @@ namespace Scanner
             editText_username = FindViewById<EditText>(Resource.Id.editText_username);
             editText_password = FindViewById<EditText>(Resource.Id.editText_password);
 
-            //Start Dictionary
-            users_information.StartDictionaray();
 
+            //Check Network Access
+            if (!(CheckPermissionGranted(Android.Manifest.Permission.AccessNetworkState) && CheckPermissionGranted(Android.Manifest.Permission.Internet)))
+            {
+                //Show PopUp Window
+                string toast = string.Format("Network Access failed!");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+            }
+            else
+            {
+                //Show PopUp Window
+                string toast = string.Format("Network Access sucessful!");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+            }
 
+           
+
+            /*
+            try
+            {
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "<your_server>.database.windows.net";
+                builder.UserID = "<your_username>";
+                builder.Password = "<your_password>";
+                builder.InitialCatalog = "<your_database>";
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    Console.WriteLine("\nQuery data example:");
+                    Console.WriteLine("=========================================\n");
+
+                    String sql = "SELECT name, collation_name FROM sys.databases";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            Console.ReadLine();
+            */
+
+        //Start Dictionary
+        users_information.StartDictionaray();
 
             //If Login-Button is clicked
             button_login.Click += delegate
@@ -111,6 +164,19 @@ namespace Scanner
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
         }
+
+        public bool CheckPermissionGranted(string Permission)
+        {
+            if(CheckSelfPermission(Permission) != Android.Content.PM.Permission.Granted)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
 

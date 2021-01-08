@@ -68,7 +68,7 @@ namespace Scanner
                     Toast.MakeText(this, toast, ToastLength.Long).Show();
                     //Focus on Username-EditText
                     editText_username.RequestFocus();
-                    
+
                     //Show Keyboard
                     InputMethodManager inputMethodManager = GetSystemService(Context.InputMethodService) as InputMethodManager;
                     inputMethodManager.ShowSoftInput(editText_username, ShowFlags.Forced);
@@ -135,7 +135,6 @@ namespace Scanner
                 string toast = string.Format("The password could not be empty");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
             }
-
         }
 
         public void PrintUsers()

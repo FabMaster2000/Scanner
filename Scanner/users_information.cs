@@ -16,6 +16,7 @@ namespace Scanner
 
         public static IDictionary<string, string> GetUsers()
         {
+
             return users;
         }
 
