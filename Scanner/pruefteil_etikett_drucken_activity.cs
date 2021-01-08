@@ -1,36 +1,29 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
-using Android.Support.V7.Widget;
-using Android.Views;
 using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Scanner
 {
     [Activity(Label = "@string/label_pruefteil_buchen", Theme = "@style/AppTheme")]
     class pruefteil_etikett_drucken_activity : AppCompatActivity
     {
-        private AppCompatButton button_pruefteil;
-        private AppCompatButton button_aufbau;
-        private AppCompatButton button_lagerplatz;
+        private Button button_pruefteil;
+        private Button button_aufbau;
+        private Button button_lagerplatz;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.pruefteil_etikett_drucken);
 
-            button_pruefteil = FindViewById<AppCompatButton>(Resource.Id.button_pruefteil);
-            button_aufbau = FindViewById<AppCompatButton>(Resource.Id.button_aufbau);
-            button_lagerplatz = FindViewById<AppCompatButton>(Resource.Id.button_lagerplatz);
+            //Elements get their ID
+            button_pruefteil = FindViewById<Button>(Resource.Id.button_pruefteil);
+            button_aufbau = FindViewById<Button>(Resource.Id.button_aufbau);
+            button_lagerplatz = FindViewById<Button>(Resource.Id.button_lagerplatz);
 
-
+            //Click-Events
             button_pruefteil.Click += delegate
             {
                 pruefteil_click();
@@ -55,6 +48,8 @@ namespace Scanner
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
+
+        //Methods to outsource
         public void pruefteil_click()
         {
             StartActivity(typeof(MainPruefteil_activity));

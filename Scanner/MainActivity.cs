@@ -3,12 +3,6 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
-using Android.Views;
-using Android.Content;
-using Android.Support.V7.Widget;
-using Android.Text;
-using Android.Util;
-using System.Linq;
 
 namespace Scanner
 {

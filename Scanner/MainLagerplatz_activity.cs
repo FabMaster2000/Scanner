@@ -1,15 +1,8 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V7.Widget;
 using Android.Support.V7.App;
-using Android.Views;
 using Android.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Scanner
 {
@@ -27,19 +20,18 @@ namespace Scanner
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set the View
             SetContentView(Resource.Layout.lagerplatz);
 
 
-            //Set id to the buttons
+            //Elements get their ID
             button_pruefteil = FindViewById<Button>(Resource.Id.button_pruefteil);
             button_aufbau = FindViewById<Button>(Resource.Id.button_aufbau);
             button_lagerplatz = FindViewById<Button>(Resource.Id.button_lagerplatz);
             button_lagerplatz_info = FindViewById<Button>(Resource.Id.button_lagerplatz_info);
             button_lagerplatz_tauschen = FindViewById<Button>(Resource.Id.button_lagerplatz_tauschen);
 
-            //Click-Event-Handler
 
+            //Click-Event
             button_pruefteil.Click += delegate
             {
                 pruefteil_click();
@@ -75,8 +67,7 @@ namespace Scanner
         }
 
 
-        //Click-Methods
-
+        //Methods to outsource
         public void pruefteil_click()
         {
             StartActivity(typeof(MainPruefteil_activity));

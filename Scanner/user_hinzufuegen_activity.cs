@@ -26,10 +26,9 @@ namespace Scanner
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-
             SetContentView(Resource.Layout.user_hinzufuegen);
 
-
+            //Elements get their ID
             button_add_user = FindViewById<Button>(Resource.Id.button_add_user);
             button_get_password = FindViewById<Button>(Resource.Id.button_get_password);
             button_all_users = FindViewById<Button>(Resource.Id.button_all_users);
