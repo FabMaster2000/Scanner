@@ -1,4 +1,10 @@
-﻿using Android.App;
+﻿
+//Activitys vieleicht auslagern?
+
+
+
+
+/*using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -9,7 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-/*
+
 namespace Scanner
 {
     [Activity(Label = "@string/label_lagerplatz_tauschen", Theme = "@style/AppTheme")]
